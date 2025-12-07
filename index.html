@@ -3,15 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>r99f - Rust WASM App</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>r99f - Modern Rust WASM Application</title>
+    <meta name="description" content="r99f is a modern web application built with Rust, Leptos, and WebAssembly. Fast, secure, and reliable.">
+    <meta name="keywords" content="rust, wasm, webassembly, leptos, web application">
+    <meta name="author" content="r99f">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="r99f - Modern Rust WASM Application">
+    <meta property="og:description" content="A modern web application built with Rust, Leptos, and WebAssembly.">
+    <meta property="og:url" content="https://r99f.app">
+    <meta property="og:site_name" content="r99f">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="r99f - Modern Rust WASM Application">
+    <meta name="twitter:description" content="A modern web application built with Rust, Leptos, and WebAssembly.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://r99f.app">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     
     <!-- Bulma CSS (CSS-only framework, no JS required) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     
     <!-- Custom dark theme overrides -->
     <link data-trunk rel="css" href="styles.css">
+    
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="msapplication-TileColor" content="#0f172a">
 </head>
 <body class="has-background-dark">
+    <!-- Noscript fallback for SEO crawlers -->
+    <noscript>
+        <div style="padding: 2rem; text-align: center; color: #f1f5f9; background: #0f172a;">
+            <h1>r99f</h1>
+            <p>This application requires JavaScript and WebAssembly to run.</p>
+            <p>Please enable JavaScript in your browser settings.</p>
+        </div>
+    </noscript>
+    
     <link data-trunk rel="rust" data-wasm-opt="0"/>
 </body>
 </html>

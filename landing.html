@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>r99f - Modern Rust WASM Application | Fast, Secure, Reliable</title>
+    <meta name="description" content="r99f is a cutting-edge web application built with Rust and WebAssembly. Experience blazing-fast performance, enhanced security, and modern design. Get started today.">
+    <meta name="keywords" content="rust, wasm, webassembly, leptos, web application, modern app, secure, fast, reliable">
+    <meta name="author" content="r99f">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="r99f - Modern Rust WASM Application">
+    <meta property="og:description" content="Experience blazing-fast performance with our Rust and WebAssembly powered application.">
+    <meta property="og:url" content="https://r99f.app">
+    <meta property="og:site_name" content="r99f">
+    <meta property="og:image" content="https://r99f.app/images/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="r99f - Modern Rust WASM Application">
+    <meta name="twitter:description" content="Experience blazing-fast performance with our Rust and WebAssembly powered application.">
+    <meta name="twitter:image" content="https://r99f.app/images/twitter-image.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://r99f.app">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="msapplication-TileColor" content="#0f172a">
+    
+    <!-- Schema.org JSON-LD Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "r99f",
+        "description": "A modern web application built with Rust, Leptos, and WebAssembly for blazing-fast performance.",
+        "url": "https://r99f.app",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript and WebAssembly support",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Blazing-fast performance",
+            "Enhanced security",
+            "Modern design",
+            "Cross-platform compatibility"
+        ]
+    }
+    </script>
+    
+    <!-- Schema.org JSON-LD - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "r99f",
+        "url": "https://r99f.app",
+        "logo": "https://r99f.app/logo.png",
+        "sameAs": [
+            "https://github.com/zlovtnik/r99f"
+        ]
+    }
+    </script>
+    
+    <!-- Schema.org JSON-LD - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://r99f.app"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Features",
+                "item": "https://r99f.app/#features"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Get Started",
+                "item": "https://r99f.app/register"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    
+    <style>
+        /* Core Web Vitals Optimization - Prevent CLS */
+        :root {
+            --scheme-main: #0f172a;
+            --scheme-main-bis: #1e293b;
+            --scheme-main-ter: #334155;
+            --text-color: #f1f5f9;
+            --text-light: #94a3b8;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --accent: #f59e0b;
+            --border: #475569;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--scheme-main);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--scheme-main-bis) !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-item {
+            color: var(--text-color) !important;
+        }
+        
+        .navbar-item:hover {
+            color: var(--primary) !important;
+            background-color: var(--scheme-main-ter) !important;
+        }
+        
+        /* Hero Section - Optimized for LCP */
+        .hero-section {
+            min-height: 90vh;
+            background: linear-gradient(135deg, var(--scheme-main) 0%, var(--scheme-main-bis) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-color) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* CTA Buttons - Touch-friendly (44x44px minimum) */
+        .cta-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white !important;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            min-height: 44px;
+            margin: 0.5rem;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        .cta-secondary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--text-color) !important;
+            text-decoration: none;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.2s;
+            min-height: 44px;
+            margin: 0.5rem;
+        }
+        
+        .cta-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary) !important;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 6rem 2rem;
+            background-color: var(--scheme-main-bis);
+        }
+        
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--scheme-main);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+        
+        .feature-description {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        /* Tech Stack Section */
+        .tech-section {
+            padding: 6rem 2rem;
+            background-color: var(--scheme-main);
+            text-align: center;
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tech-badge {
+            background: var(--scheme-main-bis);
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+        
+        .tech-badge:hover {
+            border-color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--scheme-main-bis) 100%);
+            text-align: center;
+        }
+        
+        .cta-section .section-title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--scheme-main-bis);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .cta-primary,
+            .cta-secondary {
+                display: block;
+                width: 100%;
+                max-width: 300px;
+                margin: 0.5rem auto;
+            }
+            
+            .hero-section {
+                min-height: auto;
+                padding: 3rem 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Skip to main content for accessibility */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            z-index: 9999;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+        }
+        
+        .skip-link:focus {
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/" style="font-weight: 700; font-size: 1.5rem;">
+                    r99f
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="#features">Features</a>
+                    <a class="navbar-item" href="#technology">Technology</a>
+                    <a class="navbar-item" href="/login">Login</a>
+                    <a class="navbar-item" href="/register">
+                        <span class="cta-primary" style="padding: 0.5rem 1rem; font-size: 1rem;">Get Started</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="hero-section" role="banner">
+        <div class="hero-content">
+            <h1 class="hero-title">Build Faster with Rust & WebAssembly</h1>
+            <p class="hero-subtitle">
+                r99f is a modern web application delivering blazing-fast performance, 
+                enhanced security, and an exceptional user experience powered by Rust and WASM.
+            </p>
+            <div class="hero-buttons">
+                <a href="/register" class="cta-primary">Get Started Free</a>
+                <a href="#features" class="cta-secondary">Learn More</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Features Section -->
+        <section id="features" class="features-section" aria-labelledby="features-title">
+            <h2 id="features-title" class="section-title">Why Choose r99f?</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Blazing Fast</h3>
+                    <p class="feature-description">
+                        Near-native performance with WebAssembly. Your app runs at speeds traditional JavaScript can't match.
+                    </p>
+                </article>
+                
+                <article class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Secure by Design</h3>
+                    <p class="feature-description">
+                        Rust's memory safety guarantees eliminate entire classes of security vulnerabilities at compile time.
+                    </p>
+                </article>
+                
+                <article class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Modern UI</h3>
+                    <p class="feature-description">
+                        Beautiful, responsive design with a sleek dark theme. Optimized for both desktop and mobile experiences.
+                    </p>
+                </article>
+                
+                <article class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Reactive</h3>
+                    <p class="feature-description">
+                        Built with Leptos, a cutting-edge reactive framework for building fast, modern web applications.
+                    </p>
+                </article>
+                
+                <article class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Mobile Ready</h3>
+                    <p class="feature-description">
+                        Fully responsive design that works seamlessly across all devices and screen sizes.
+                    </p>
+                </article>
+                
+                <article class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Easy to Deploy</h3>
+                    <p class="feature-description">
+                        Static files that can be deployed anywhere. No server-side runtime required.
+                    </p>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Technology Section -->
+        <section id="technology" class="tech-section" aria-labelledby="tech-title">
+            <h2 id="tech-title" class="section-title">Built with Modern Technology</h2>
+            <div class="tech-badges">
+                <span class="tech-badge">🦀 Rust</span>
+                <span class="tech-badge">🌐 WebAssembly</span>
+                <span class="tech-badge">⚡ Leptos 0.6</span>
+                <span class="tech-badge">🎨 Bulma CSS</span>
+                <span class="tech-badge">📦 Trunk</span>
+                <span class="tech-badge">🐳 Docker</span>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <h2 id="cta-title" class="section-title">Ready to Get Started?</h2>
+            <p>Join today and experience the future of web applications.</p>
+            <a href="/register" class="cta-primary">Create Free Account</a>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 r99f. All rights reserved.</p>
+            <p style="margin-top: 1rem;">
+                <a href="/privacy">Privacy Policy</a> | 
+                <a href="/terms">Terms of Service</a> |
+                <a href="https://github.com/zlovtnik/r99f" target="_blank" rel="noopener">GitHub</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
