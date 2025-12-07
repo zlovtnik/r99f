@@ -15,7 +15,7 @@ pub fn Header() -> impl IntoView {
         <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <A href="/" class="navbar-item has-text-weight-bold">
-                    "R99F"
+                    "🏠 Ruben Lama Roofing"
                 </A>
                 <a
                     role="button"
@@ -42,7 +42,7 @@ pub fn Header() -> impl IntoView {
                         when=is_logged_in
                         fallback=|| view! {
                             <A href="/login" class="navbar-item">"Login"</A>
-                            <A href="/register" class="navbar-item">"Register"</A>
+                            <A href="/register" class="navbar-item">"Get Estimate"</A>
                         }
                     >
                         <A href="/dashboard" class="navbar-item">"Dashboard"</A>
