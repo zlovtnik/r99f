@@ -27,11 +27,23 @@ html, body {
     background-color: var(--bulma-scheme-main);
     color: var(--bulma-text);
     min-height: 100vh;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    /* Better text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Safe area support for notched devices */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
     display: flex;
     flex-direction: column;
+    /* Prevent text size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 /* App container */
@@ -361,10 +373,29 @@ a:hover {
     .navbar-menu {
         background-color: var(--bulma-scheme-main-bis);
         border-top: 1px solid var(--bulma-border);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        max-height: calc(100vh - 52px);
+        overflow-y: auto;
     }
     
     .navbar-menu.is-active {
         display: block;
+    }
+    
+    /* Larger touch targets on mobile */
+    .navbar-item {
+        padding: 1rem 1.25rem;
+        font-size: 1.1rem;
+    }
+    
+    .navbar-burger {
+        height: 52px;
+        width: 52px;
+    }
+    
+    .navbar-burger span {
+        height: 2px;
+        width: 20px;
     }
 }
 
@@ -734,11 +765,177 @@ a:hover {
     }
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Mobile Responsive Styles
+ * ───────────────────────────────────────────────────────────────────────────── */
+
+/* Small mobile devices (320px - 480px) */
+@media screen and (max-width: 480px) {
+    .hero-section {
+        padding: 2rem 1rem;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        padding: 0 0.5rem;
+    }
+    
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin: 1rem auto 1.5rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .stat-divider {
+        width: 40px;
+        height: 1px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-cta {
+        width: 100%;
+        min-width: unset;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .services-section,
+    .cta-section {
+        padding: 3rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+        margin-top: 2rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+    
+    .service-icon {
+        font-size: 2.5rem;
+    }
+    
+    .service-title {
+        font-size: 1.1rem;
+    }
+    
+    .service-desc {
+        font-size: 0.9rem;
+    }
+    
+    .cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .cta-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Auth forms on small mobile */
+    .auth-box {
+        padding: 1.25rem;
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .auth-section {
+        padding: 1rem;
+        min-height: calc(100vh - 52px - 60px);
+    }
+    
+    /* Form inputs - larger touch targets */
+    .input,
+    .textarea,
+    .select select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        padding: 0.75rem 1rem;
+        height: auto;
+        min-height: 48px; /* Touch-friendly minimum */
+    }
+    
+    .button {
+        min-height: 48px;
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .label {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .field {
+        margin-bottom: 1rem;
+    }
+    
+    /* Notification on mobile */
+    .notification {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Title sizing on mobile */
+    .title.is-4 {
+        font-size: 1.25rem;
+    }
+    
+    /* Footer on mobile */
+    .footer {
+        padding: 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Medium mobile / tablet portrait (481px - 768px) */
+@media screen and (max-width: 768px) and (min-width: 481px) {
     .hero-section {
         padding: 3rem 1.5rem;
         min-height: auto;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
     }
     
     .hero-stats {
@@ -755,12 +952,13 @@ a:hover {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
     }
     
     .btn-primary,
     .btn-secondary {
         width: 100%;
-        max-width: 280px;
+        max-width: 320px;
     }
     
     .services-section,
@@ -768,7 +966,76 @@ a:hover {
         padding: 4rem 1.5rem;
     }
     
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
     .service-card {
         padding: 2rem 1.5rem;
+    }
+    
+    /* Auth forms */
+    .auth-box {
+        padding: 1.5rem;
+        margin: 1.5rem;
+    }
+    
+    .auth-section {
+        padding: 1.5rem;
+    }
+    
+    /* Form inputs - touch friendly */
+    .input,
+    .textarea,
+    .select select {
+        font-size: 16px;
+        min-height: 44px;
+    }
+    
+    .button {
+        min-height: 44px;
+    }
+}
+
+/* Tablet / Small desktop (769px - 1023px) */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-section {
+        padding: 4rem 2rem;
+    }
+}
+
+/* Landscape orientation fixes */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        min-height: auto;
+        padding: 2rem 1.5rem;
+    }
+    
+    .auth-section {
+        min-height: auto;
+        padding: 1rem;
+    }
+    
+    .hero-stats {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .stat-divider {
+        width: 1px;
+        height: 40px;
+    }
+}
+
+/* High DPI / Retina display improvements */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .service-card,
+    .box {
+        border-width: 0.5px;
     }
 }
