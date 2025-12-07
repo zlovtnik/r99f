@@ -15,7 +15,7 @@ pub fn Header() -> impl IntoView {
         <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <A href="/" class="navbar-item has-text-weight-bold">
-                    "🏠 Ruben Lama Roofing"
+                    "🏠 Ruben Lema Roofing"
                 </A>
                 <a
                     role="button"

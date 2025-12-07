@@ -44,7 +44,7 @@ pub fn HomePage() -> impl IntoView {
                     <div class="info-card">
                         <h2 class="info-title">"Residential & Commercial"</h2>
                         <p class="info-text">
-                            "Residential and commercial roofs have their own set of unique challenges. Regardless of the type or size of your property, Ruben Lama Roofing understands your needs and is ready to meet those unique challenges!"
+                            "Residential and commercial roofs have their own set of unique challenges. Regardless of the type or size of your property, Ruben Lema Roofing understands your needs and is ready to meet those unique challenges!"
                         </p>
                         <A href="#services" class="info-link">"Learn More →"</A>
                     </div>
@@ -125,7 +125,7 @@ pub fn HomePage() -> impl IntoView {
                 <div class="grid-item about-item">
                     <h3 class="grid-title">"WHO WE ARE"</h3>
                     <p class="grid-text">
-                        "We are Ruben Lama Roofing, a dedicated roofing contractor committed to providing our customers the highest degree of craftsmanship, quality, and integrity at the most competitive rates."
+                        "We are Ruben Lema Roofing, a dedicated roofing contractor committed to providing our customers the highest degree of craftsmanship, quality, and integrity at the most competitive rates."
                     </p>
                     <A href="#" class="grid-link">"More about us →"</A>
                 </div>
