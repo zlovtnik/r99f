@@ -1,0 +1,54 @@
+[package]
+name = "r99f"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Framework
+leptos = { version = "0.6", features = ["csr"] }
+leptos_router = { version = "0.6", features = ["csr"] }
+
+# HTTP client
+gloo-net = "0.5"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Utilities
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = ["Window", "Storage", "console"] }
+js-sys = "0.3"
+
+# Logging
+console_error_panic_hook = "0.1"
+log = "0.4"
+console_log = "1.0"
+
+# Date/Time
+chrono = { version = "0.4", features = ["serde", "wasmbind"] }
+
+# UUID
+uuid = { version = "1.6", features = ["v4", "serde", "js"] }
+
+# Validation
+validator = { version = "0.18", features = ["derive"] }
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Release profile: Optimized for WASM binary size (faster downloads)
+# ─────────────────────────────────────────────────────────────────────────────
+# - opt-level = 'z': Aggressive size optimization over speed
+# - lto = true: Link-time optimization for smaller output
+# - codegen-units = 1: Better optimization at cost of compile time
+# - panic = "abort": Smaller binary (no unwinding code); acceptable for WASM
+#   where panics are unrecoverable anyway
+#
+# Tradeoff: Slower runtime performance vs smaller download size.
+# For performance-critical builds, use opt-level = 3 and remove panic = "abort".
+# ─────────────────────────────────────────────────────────────────────────────
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"

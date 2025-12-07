@@ -1,0 +1,369 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+ * r99f Dark Theme - Bulma Overrides
+ * ───────────────────────────────────────────────────────────────────────────── */
+
+:root {
+    --bulma-scheme-main: #0f172a;
+    --bulma-scheme-main-bis: #1e293b;
+    --bulma-scheme-main-ter: #334155;
+    --bulma-background: #0f172a;
+    --bulma-text: #f1f5f9;
+    --bulma-text-light: #94a3b8;
+    --bulma-border: #475569;
+    --bulma-link: #3b82f6;
+    --bulma-link-hover: #2563eb;
+    --bulma-primary: #3b82f6;
+    --bulma-primary-light: #1e40af;
+    --bulma-danger: #ef4444;
+    --bulma-danger-light: #fca5a5;
+    --bulma-success: #22c55e;
+    --bulma-success-light: #86efac;
+    --bulma-warning: #f59e0b;
+    --bulma-info: #06b6d4;
+}
+
+/* Base */
+html, body {
+    background-color: var(--bulma-scheme-main);
+    color: var(--bulma-text);
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* App container */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container > main {
+    flex: 1;
+}
+
+/* Main content area - accounts for fixed navbar */
+.main-content {
+    padding-top: 4rem;
+}
+
+/* Auth form container */
+.auth-box {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Navbar dark theme */
+.navbar.is-dark {
+    background-color: var(--bulma-scheme-main-bis);
+    border-bottom: 1px solid var(--bulma-border);
+}
+
+.navbar.is-dark .navbar-brand .navbar-item {
+    color: var(--bulma-primary);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar.is-dark .navbar-item,
+.navbar.is-dark .navbar-link {
+    color: var(--bulma-text);
+}
+
+.navbar.is-dark .navbar-item:hover,
+.navbar.is-dark .navbar-link:hover {
+    background-color: var(--bulma-scheme-main-ter);
+    color: var(--bulma-text);
+}
+
+.navbar.is-dark .navbar-burger span {
+    background-color: var(--bulma-text);
+}
+
+/* Footer dark theme */
+.footer {
+    background-color: var(--bulma-scheme-main-bis);
+    border-top: 1px solid var(--bulma-border);
+    color: var(--bulma-text-light);
+    padding: 1.5rem;
+    margin-top: auto;
+}
+
+/* Cards/Box dark theme */
+.box {
+    background-color: var(--bulma-scheme-main-bis);
+    border: 1px solid var(--bulma-border);
+    color: var(--bulma-text);
+}
+
+.card {
+    background-color: var(--bulma-scheme-main-bis);
+    color: var(--bulma-text);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--bulma-border);
+    box-shadow: none;
+}
+
+.card-header-title {
+    color: var(--bulma-text);
+}
+
+.card-content {
+    color: var(--bulma-text);
+}
+
+/* Form inputs dark theme */
+.input,
+.textarea,
+.select select {
+    background-color: var(--bulma-scheme-main-ter);
+    border-color: var(--bulma-border);
+    color: var(--bulma-text);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--bulma-text-light);
+}
+
+.input:focus,
+.textarea:focus,
+.select select:focus {
+    border-color: var(--bulma-primary);
+    box-shadow: 0 0 0 0.125em rgba(59, 130, 246, 0.25);
+}
+
+.input:disabled,
+.textarea:disabled,
+.select select:disabled,
+.input[disabled],
+.textarea[disabled] {
+    background-color: var(--bulma-scheme-main);
+    border-color: var(--bulma-border);
+    color: var(--bulma-text-light);
+}
+
+.label {
+    color: var(--bulma-text);
+}
+
+/* Buttons */
+.button.is-primary {
+    background-color: var(--bulma-primary);
+}
+
+.button.is-primary:hover {
+    background-color: var(--bulma-link-hover);
+}
+
+.button.is-dark {
+    background-color: var(--bulma-scheme-main-ter);
+    color: var(--bulma-text);
+}
+
+.button.is-dark:hover {
+    background-color: var(--bulma-border);
+}
+
+.button.is-loading::after {
+    border-color: transparent transparent var(--bulma-text) var(--bulma-text);
+}
+
+/* Notifications / Messages */
+.notification {
+    background-color: var(--bulma-scheme-main-ter);
+    color: var(--bulma-text);
+}
+
+.notification.is-danger {
+    background-color: color-mix(in srgb, var(--bulma-danger) 15%, transparent);
+    border: 1px solid var(--bulma-danger);
+    color: var(--bulma-danger-light);
+}
+
+.notification.is-success {
+    background-color: color-mix(in srgb, var(--bulma-success) 15%, transparent);
+    border: 1px solid var(--bulma-success);
+    color: var(--bulma-success-light);
+}
+
+/* Title/Subtitle */
+.title,
+.subtitle {
+    color: var(--bulma-text);
+}
+
+/* Content */
+.content {
+    color: var(--bulma-text);
+}
+
+.content h1, .content h2, .content h3,
+.content h4, .content h5, .content h6 {
+    color: var(--bulma-text);
+}
+
+.content ul {
+    margin-left: 0;
+    list-style: none;
+}
+
+/* Hero */
+.hero.is-dark {
+    background-color: var(--bulma-scheme-main-bis);
+}
+
+.hero.is-dark .title,
+.hero.is-dark .subtitle {
+    color: var(--bulma-text);
+}
+
+/* Stat card custom styling */
+.stat-card {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--bulma-primary);
+    line-height: 1.2;
+}
+
+.stat-label {
+    color: var(--bulma-text-light);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+}
+
+/* User list */
+.user-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--bulma-border);
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+/* Loading spinner */
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Custom loader that matches Bulma's style */
+.loader {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 3px solid var(--bulma-scheme-main-ter);
+    border-top-color: var(--bulma-primary);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Section backgrounds */
+.section {
+    background-color: var(--bulma-scheme-main);
+}
+
+/* Table dark theme */
+.table {
+    background-color: var(--bulma-scheme-main-bis);
+    color: var(--bulma-text);
+}
+
+.table th {
+    color: var(--bulma-text);
+}
+
+.table td, .table th {
+    border-color: var(--bulma-border);
+}
+
+.table.is-striped tbody tr:not(.is-selected):nth-child(even) {
+    background-color: var(--bulma-scheme-main-ter);
+}
+
+.table.is-hoverable tbody tr:not(.is-selected):hover {
+    background-color: var(--bulma-scheme-main-ter);
+}
+
+/* Modal dark theme */
+.modal-card {
+    background-color: var(--bulma-scheme-main-bis);
+}
+
+.modal-card-head,
+.modal-card-foot {
+    background-color: var(--bulma-scheme-main-ter);
+    border-color: var(--bulma-border);
+}
+
+.modal-card-title {
+    color: var(--bulma-text);
+}
+
+.modal-card-body {
+    background-color: var(--bulma-scheme-main-bis);
+    color: var(--bulma-text);
+}
+
+/* Dropdown dark theme */
+.dropdown-content {
+    background-color: var(--bulma-scheme-main-bis);
+    border: 1px solid var(--bulma-border);
+}
+
+.dropdown-item {
+    color: var(--bulma-text);
+}
+
+.dropdown-item:hover {
+    background-color: var(--bulma-scheme-main-ter);
+    color: var(--bulma-text);
+}
+
+/* Links */
+a {
+    color: var(--bulma-link);
+}
+
+a:hover {
+    color: var(--bulma-link-hover);
+}
+
+/* Auth form centering */
+.auth-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 52px - 72px); /* viewport - navbar - footer */
+}
+
+/* Responsive navbar fix */
+@media screen and (max-width: 1023px) {
+    .navbar-menu {
+        background-color: var(--bulma-scheme-main-bis);
+        border-top: 1px solid var(--bulma-border);
+    }
+    
+    .navbar-menu.is-active {
+        display: block;
+    }
+}

@@ -1,0 +1,15 @@
+[build]
+target = "index.html"
+
+[watch]
+ignore = ["target"]
+
+[serve]
+address = "127.0.0.1"
+port = 8080
+
+# Environment variables passed to rustc during build.
+# Override API_BASE_URL for staging/production builds:
+#   API_BASE_URL=https://api.example.com/api trunk build --release
+[build.env]
+# API_BASE_URL = "http://localhost:3000/api"  # uncomment to override default
